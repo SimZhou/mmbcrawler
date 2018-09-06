@@ -1,0 +1,1120 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><title>
+	查询商品历史价格走势（支持京东，天猫，淘宝等）APP - 慢慢买
+</title><link rel="icon" type="image/vnd.microsoft.icon" href="//misc.manmanbuy.com/images/favicon.ico" />
+<script type="text/javascript" src="/Scripts/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" href="//include.manmanbuy.com/css/style.css" type="text/css" /><link rel="stylesheet" href="//include.manmanbuy.com/css/headfoot.css" type="text/css" />
+    <style type="text/css">
+.container { width: 995px; margin: 0px auto; text-align:center; }
+.menu2j{height:35px; line-height:36px;width:95px; float:left; text-align:center;  font-size:14px;}
+.menu2jf{height:35px; line-height:36px;width:95px; background-color:#f3f3f3; border-bottom:2px solid #f3f3f3;float:left; text-align:center;  font-size:14px;}
+.menu2jd{height:36px; line-height:36px;width:95px; float:left; text-align:center; border-bottom:2px solid #EE7101;font-size:14px;}
+#toolbox { width: 100%; }
+.container{ text-align:left;}
+</style>
+
+  
+
+<style type="text/css">
+.w{ width:995px; margin:0px auto;}
+.breadcrumbs{ margin:12px auto;}
+.breadcrumbs .crumbs{ float:left;}
+.breadcrumbs .crumbs small{font-size: 12px;font-family: serif;margin: auto 6px; line-height:20px;}
+.cumenu{ height: 50px; line-height: 50px;}
+.cumenu ul{ overflow:visible;}
+.cumenu ul li{ float: left; font-size: 18px; color: #666; text-align: center; border-bottom: 1px solid #000; position: relative; overflow: visible; width:140px;}
+.cumenu ul li a{ color: #5a5a5a; font-weight: bold; font-family: "Microsoft Yahei";}
+.cumenu ul li a:hover{}
+.cumenu ul li.on{ background: url(//static.manmanbuy.com/res/) center bottom no-repeat; border-bottom: 1px solid #f27b04;}
+.cumenu ul li.on a{ color: #f27b04;}
+.cumenu ul li i.ic-cu-tip{position: absolute; display: block; width: 142px; height: 27px; overflow: hidden; background: url(https://img.alicdn.com/imgextra/i4/690311/TB2YuUStXXXXXajXpXXXXXXXXXX_!!690311.gif) no-repeat; top: -10px; left: 90px;}
+</style>
+
+
+    
+    <style type="text/css">
+a.gobuy{ display: inline-block; border-radius: 3px; text-align: center; width: 100px; height: 26px; font-size: 14px; line-height: 26px; border: 1px solid #f70; margin: 0 auto; font-family: "Microsoft Yahei"; color: #f70; margin-left: 10px;}
+a.gobuy:hover{background-color:#f70;color:#fff; text-decoration: none;}
+a.gobuy i{ margin-left: 2px; font-style: normal; font-size:12px;}
+.linkbox{ font-size:14px; margin-top: 20px;}
+
+.history .hd {padding: 10px 0px; font-size:18px; font-weight:bold;}  
+.history .bd {padding: 0px 0px 30px 0px;}    
+.history .bd ul li { overflow:visible; line-height:26px; font-size:14px;}
+.history .bd ul li  .notice{ color: #999; margin-left:20px;font-size:12px;}
+.history .bd ul li  .notice:hover{ color: #e4393c;margin-left:20px;}
+
+.pro-mall-list .bd {padding: 0px 10px;}
+.pro-mall-list .bd ul,.pro-mall-list .bd ul li { overflow:visible; }
+.pro-mall-list .bd .item { border-top: 1px solid #eeeeee;padding: 10px 0px 10px 0px; height: 1%;min-height: 60px;}
+.pro-mall-list .bd .nobr{border-top: none;}
+.pro-mall-list .bd .item .mall { float: left; width: 130px; text-align: center; margin-right: 15px; }
+.pro-mall-list .bd .item .mall p { }
+.pro-mall-list .bd .item .mall p a{font-size: 14px;}
+.pro-mall-list .bd .item .mall p img { border: none; vertical-align: -3px; margin-right: 4px; }
+.pro-mall-list .bd .item .title { float: left; width: 450px; margin-right: 20px; }
+.pro-mall-list .bd .item .title .t a { color: #1364a5; line-height: 20px; }
+.pro-mall-list .bd .item .title .t a:hover { text-decoration: underline; color: #fe7800;}
+.pro-mall-list .bd .item .title .t span { color: #fe7800; line-height: 20px; margin-left: 4px; }
+.pro-mall-list .bd .item .title .brand-more { margin-top: 10px; }
+.pro-mall-list .bd .item .title .brand-more a { float: left; display: block; color: #555; height: 22px; line-height: 22px; padding-right: 8px; write-space: norwrap; border: 1px solid #e1e1e1; background-color: #f6f6f6; overflow: hidden; cursor: pointer; }
+.pro-mall-list .bd .item .title .brand-more a:hover { text-decoration: none; }
+.pro-mall-list .bd .item .title .brand-more a:hover, .pro-mall-list .bd .item .title .brand-more a:hover span { color: #ed0000; }
+.pro-mall-list .bd .item .title .brand-more span { float: left; line-height: 23px; }
+.pro-mall-list .bd .item .title .brand-more span.scico-show, .pro-mall-list .bd .item .title .brand-more span.scico-close { float: left; width: 20px; height: 22px; margin-right: 10px; border-right: 1px solid #e5e5e5; overflow: hidden; text-align: center; font-size: 20px; color: #999; ; }
+.pro-mall-list .bd .item .title .brand-more a.brand-more-close { display: none; }
+.pro-mall-list .bd .item .title .brand-more span.scico-show { }
+.pro-mall-list .bd .item .title .brand-more span.scico-close { line-height: 18px; }
+.pro-mall-list .bd .item .price { float: left; width: 125px; text-align: center; }
+.pro-mall-list .bd .item .price .p { font-size: 16px; color: #cb0000; font-family: Verdana; font-weight: bold; }
+.pro-mall-list .bd .item .price .p em { font-style: normal; font-size: 12px; }
+.pro-mall-list .bd .item .price .p img { border: none; margin-left: 4px; }
+.pro-mall-list .bd .item .price .d { }
+.pro-mall-list .bd .item .price .d a { color: #ee7000; }
+.pro-mall-list .bd .item .info { float: left; margin-left: 10px; width: 135px; }
+.pro-mall-list .bd .item .info p { margin: 0px 0px 4px 0px; padding: 0px; }
+.pro-mall-list .bd .item .info p i { font-style: normal; font-weight: normal; vertical-align: middle; margin-right: 4px; }
+.pro-mall-list .bd .item .info p i.icon-pay { color: #1263a4; }
+.pro-mall-list .bd .item .info p i.icon-man { color: #1263a4; }
+.pro-mall-list .bd .item .info p i.icon-mian { color: #1263a4; }
+.pro-mall-list .bd .item .info p i.icon-air { color: #ee7200; }
+.pro-mall-list .bd .item .info p i.icon-car { color: #ee7200; }
+.pro-mall-list .bd .item .info p i.icon-bike { color: #ee7200; }
+.pro-mall-list .bd .item .info p i.icon-tip { color: #999999; margin-left: 4px; margin-right: 0px; cursor: pointer; }
+.pro-mall-list .bd .item .sales { float: left; width: 100px; }
+.pro-mall-list .bd .item .sales span { color: #015a9e; }
+.pro-mall-list .bd .item .sales a:hover span { color: #ee7000; }
+.pro-mall-list .bd .item .action { float: left; width: 110px; text-align: center; }
+.pro-mall-list .bd .item .action a { display: block; border-radius: 3px; text-align: center; background-color: #ff7700; color: #ffffff; width: 74px; height: 22px; line-height: 22px; border: 1px solid #ff7700; margin: 0px auto; }
+.pro-mall-list .bd .subitem { display: none; }
+
+
+        .titleheadRight .quan2
+        {
+           text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    right: 150px;
+    top: 55px;
+    font-size: 14px;
+        }
+        .titleheadRight .quan2 a
+        {
+         border: 1px dotted #e4393c;
+    margin: 0 auto;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin-left: 5px;
+    padding: 0px 5px;
+    font-size: 12px;
+    color: #e4393c;
+    z-index: 1;
+    padding: 8px 5px;
+        }
+        
+        
+          .trend_page .culist {
+        background-color: #ffffff;
+        margin-top: 20px;
+    }
+    
+    .trend_page .culist .hd {
+        font-size: 15px;
+        padding: 0px 10px;
+        line-height: 50px;
+        color: #252525;
+        font-weight: bold;
+    }
+    
+    .trend_page .culist .bd {
+        padding: 20px;
+    }
+    
+    .trend_page .culist .bd ul {
+        border-left: 1px dotted #b9b9b9;
+        margin:0px;
+        padding: 0px;
+        overflow:visible;
+    }
+    
+    .trend_page .culist .bd ul li {
+        position: relative;
+        margin:0px;
+        padding: 0px 10px 30px 10px;
+        list-style: none;
+        overflow:visible;
+    }
+ 
+    
+    .trend_page .culist .bd ul li i {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 10px;
+        background-color: #b9b9b9;
+        left: -6px;
+        top: 5px;
+    }
+    .trend_page .culist .bd a.go{
+    	position: absolute;
+    	display: block;
+    	width: 100%;
+    	height: 100%;
+    	top: 0px;
+    	left: 0px;
+    }
+    .trend_page .culist .bd .t {
+        color: #5a5a5a;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        font-size: 14px;
+        margin-top: -5px;
+        word-break: break-all;
+        height: 20px;
+        line-height: 20px;
+    }
+    
+    .trend_page .culist .bd .s {
+        color: #ff6700;
+        font-size: 14px;
+        word-break: break-all;
+        margin-top: 8px;
+        line-height: 20px;
+    }
+    
+    .trend_page .culist .bd .d {
+        color: #c8c8c8;
+        font-size: 12px;
+        margin-top: 8px;
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+        
+</style>
+
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?85f48cee3e51cd48eaba80781b243db3";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+</script>
+</head>
+<body id="Body1">
+
+ <style type="text/css">
+span.my-mmb a:hover,span.my-helper a:hover,span.mmb-app a:hover{TEXT-DECORATION: underline;Color: #ee7000;}
+.top-right .mmb-app a,.top-right .mmb-app .qrcode .qr-img,.top-right .mmb-app .qrcode .qr-btn a{ background:url(http://www.zuyushop.com/newindexpic/m.m.c/nav_app_icon.gif) no-repeat;}
+.top-right .mmb-app{ margin-right:0px; padding:0px;display: inline-block;padding: 0;position: relative;z-index: 2;vertical-align: middle;}
+.top-right .mmb-app a{ display:inline-block; padding-left:16px; background-position:-128px 2px;z-index:6;*top:31px;_top:30px;}
+.top-right .mmb-app .qr-tit{ display:inline-block;padding: 0 20px 0 5px;color: #555;background: url(http://misc.manmanbuy.com/images/cart/arrow.gif) right 10px no-repeat;border-bottom: none;float: left; height:27px; line-height:27px;}
+.top-right .mmb-app .qrcode{ background:#FFFFFF; border:1px solid #dcdcdc; padding:10px; width:230px; display:none; position:absolute;  left:0; top:30px;margin-top:-5px;}
+.top-right .mmb-app .line{height:1px; width:99px; background:#fff; line-height:0; font-size:0; position:absolute;top:25px;*top:25px;left:1px;_top:25px;z-index:7;display:none; }
+.top-right .mmb-app .qrcode p{ color:#999999;margin: 0px;}
+.top-right .mmb-app .qrcode p b{ color:#5a5a5a;}
+.top-right .mmb-app .qrcode .qr{ margin-top:4px; height:110px;}
+.top-right .mmb-app .qrcode .qr-img{ width:106px; height:106px; background-position:0 0;float: left; margin-right:10px;}
+.top-right .mmb-app .qrcode .qr-btn{ padding-left:116px;}
+.top-right .mmb-app .qrcode .qr-btn a.a-iphone,.top-right .mmb-app .qrcode .qr-btn a.a-android{ display:block; width:104px; height:28px; padding:0px; margin:10px 0px;}
+.top-right .mmb-app .qrcode .qr-btn a.a-iphone{background-position:0px -122px;}
+.top-right .mmb-app .qrcode .qr-btn a.a-android{ background-position:0px -157px;}
+.top-right span.spanjj{padding:0px;font-size: 9px;color: #dddddd;}
+.top-right a.pt{margin-left:10px;}
+span.my-mmb,span.my-helper{display:inline-block; padding:0; position:relative; z-index:2; vertical-align:middle; height:27px; line-height:27px;}
+span.my-mmb div,span.my-helper div{ color:#555; padding:0 20px 0 10px;background:url(http://misc.manmanbuy.com/images/cart/arrow.gif) right 10px no-repeat; display:inline-block; border-bottom:none;float:left; }
+span.my-mmb:hover,span.my-helper:hover{cursor:pointer;}
+span.my-mmb dl,span.my-helper dl{ position:absolute; background:#fff; border:1px solid #DCDCDC;display:none;padding:1px 0px 3px 0px;line-height:24px; right:0; top:30px; margin-top:-5px;z-index:6;*top:31px;_top:30px;}
+span.my-mmb dl dd,span.my-helper dl dd{ padding:0px 9px 0px 9px; height:25px;line-height:25px;margin:0px;}
+span.my-mmb dl a,span.my-helper dl a{ font-weight:normal; line-height:22px; white-space:nowrap;}
+span.my-mmb .line{ height:1px; background:#fff; line-height:0; font-size:0; position:absolute; top:25px;*top:26px;_top:25px;right:1px;z-index:7; display:none;}
+span.my-helper .line{ height:1px; width:100px; background:#fff; line-height:0; font-size:0; position:absolute;top:25px;*top:26px;right:1px;_top:25px;z-index:7;display:none; }
+.proFl .title span{ font-size:14px !important; font-weight:normal !important;}
+#menutemai{ position:relative;}
+#menutemai img.icon-new{ position:absolute; top: 9px;left: 74px;}
+#menucuxiao{ margin-left:7px;}
+#menutemai{ margin-left:15px;}
+#menubaicai{ margin-left:15px;}
+#menufanli{ margin-left:20px;}
+#menucomment{ margin-left:14px;}
+.menudiv3{ width:110px;padding-top: 0px;height: 39px; line-height:39px;}
+A.menu:link, A.menu:active, A.menu:visited{ font-family:"Microsoft YaHei"; font-weight:normal; font-size:15px;}
+#menupinpai a,#menujifen a{font-family:"Microsoft YaHei"; font-weipight:normal; font-size:15px;}
+
+</style>
+
+
+<!--新的搜索-->
+<style type="text/css">
+.head-search{float:right; padding: 15px 0px 8px 0px;width: 620px; text-align: left; *padding-top: 20px; *position:relative; *z-index:1;}
+.head-search .tabs{ height: 25px; }
+.head-search .tabs ul li{float: left; width: 50px; height: 25px;}
+.head-search .tabs ul li a{ display:block; color: #F40; text-align: center; line-height: 25px;}
+.head-search .tabs ul li a:hover{text-decoration: none; background-color: #FFEEE5;}
+.head-search .tabs ul li.on a{ color: #ffffff; background-color: #ff6600;}
+.head-search .panel{ background-color: #ff6600; padding: 2px 0 2px 2px; height: 34px; position: relative;*padding: 1px 0 2px 2px;}
+.head-search .panel form{}
+.head-search .panel .sInput{ width: 535px; position: relative;}
+.head-search .panel .sInput label{line-height: 22px; position: absolute; top: 6px; left: 11px; color: #a9a9a9; height: 0px; cursor: text;touch-action: none; -ms-touch-action: none; pointer-events: none; -ms-pointer-events: none; -webkit-user-select: none; font-family: 'Microsoft Yahei';}
+.head-search .panel .sInput input.skey{border: none; padding: 6px 0;text-indent: 10px;height: 22px;line-height: 22px;width: 530px;outline: 0;background: #ffffff;-webkit-appearance: none;display:block;*height:21px; font-family: 'Microsoft Yahei';color: #5a5a5a;font-size: 12px;}
+.head-search .panel .sBtn{ position: absolute; top: 0px; right: 0px; width: 85px; height: 38px; overflow: hidden; text-align: center;*height:37px;}
+.head-search .panel .sBtn input.btnSearch{font-size: 18px; font-weight: 700; color: #ffffff; background-color: #ff6600; cursor: pointer; height: 100%; border: none; width: 100%; outline: 0;-webkit-appearance: none; *line-height:34px;}
+.head-search .tags{margin-top: 2px;color: #666;line-height:22px;}
+.head-search .tags span{ color: #666;}
+.head-search .tags a{ margin-right: 1px; color: #666;}
+.head-search .tags a:hover{color: #f85000; text-decoration: none;}
+.head-search .tags a.hot{color: #f85000;}
+.head-search-bijia .tags-zhekou,.head-search-zhekou .tags-bijia{ display: none;}
+.head-search-bijia .tags-bijia,.head-search-zhekou .tags-zekou{ display: block;}
+.head-search-bijia ul li.tab-bijia a,
+.head-search-zhekou ul li.tab-zhekou a{ color: #ffffff;background-color: #ff6600 !important;}
+</style>
+
+<script type="text/javascript">
+$(function () {
+    ;(function ($) {
+        $.searchHolder=function(searchTip) {
+            $.event.special.valuechange = {
+                teardown: function (namespaces) {
+                    $(this).unbind('.valuechange');
+                },
+                handler: function (e) {
+                    $.event.special.valuechange.triggerChanged($(this));
+                },
+                add: function (obj) {
+                    $(this).on('keyup.valuechange cut.valuechange paste.valuechange input.valuechange', obj.selector, $.event.special.valuechange.handler)
+                },
+                triggerChanged: function (element) {
+                    var current = element[0].contentEditable === 'true' ? element.html() : element.val(),
+                        previous = typeof element.data('previous') === 'undefined' ? element[0].defaultValue : element.data('previous')
+                    if (current !== previous) {
+                        element.trigger('valuechange', [element.data('previous')])
+                        element.data('previous', current)
+                    }
+                }
+            }
+            $('.head-search .panel .sInput .skey').on('valuechange', function (e, previous) {
+                if ($(this).val() != '' && $(this).val()) {
+                    $('.head-search .panel .sInput label').text('');
+                } else {
+                    $('.head-search .panel .sInput label').text(searchTip);
+                }
+            });
+            if ($('.head-search .panel .sInput .skey').val() != '') {
+                return;
+            } else {
+                $('.head-search .panel .sInput label').text(searchTip);
+            }
+        }
+    })(jQuery);
+
+    $.searchHolder($('.head-search .panel form .skey').attr('data-bijia'));
+    $('.head-search .tabs ul li').each(function (eq) {
+        $(this).click(function () {
+            $('.head-search .panel form').removeAttr('action');
+            if (eq == 0) {
+                $('.head-search .panel form').attr('action', 'http://s.manmanbuy.com/Default.aspx');
+                $.searchHolder($('.head-search .panel form .skey').attr('data-bijia'));
+                $('.head-search').removeClass('head-search-zhekou').addClass('head-search-bijia');
+            } else {
+                $('.head-search .panel form').attr('action', 'http://zhekou.manmanbuy.com/searchnew.aspx');
+                $.searchHolder($('.head-search .panel form .skey').attr('data-zekou'));
+                $('.head-search').removeClass('head-search-bijia').addClass('head-search-zhekou');
+            }
+        });
+    });
+    $(".panel form").submit(function (e) {
+if ($('.head-search .panel .sInput .skey').val()==''){
+        if ($('.head-search').hasClass('head-search-bijia')) {
+            $('.head-search .panel .sInput .skey').val($('.head-search .panel form .skey').attr('data-bijia'));
+        } }
+        return true;
+    });
+})
+</script>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+	$("span.my-mmb").hover(function() {
+		$(this).find("p.line").width(88).show();
+		$(this).find("dl").width(88).show();
+		$(this).css("background","#fff url(http://misc.manmanbuy.com/images/cart/arrowL.gif) left  -4px no-repeat");
+		$(this).find('div').css("background","url(http://misc.manmanbuy.com/images/cart/arrowR.gif) right  -4px no-repeat");
+	}, function() {
+		$(this).find("p.line").hide();
+		$(this).find("dl").hide();
+		$(this).css("background","none");
+		$(this).find('div').css("background","url(http://misc.manmanbuy.com/images/cart/arrow.gif) right 10px no-repeat");
+	});
+	$("span.my-helper").hover(function() {
+		$(this).find("p.line").width(100).show();
+		$(this).find("dl").width(100).show();
+		$(this).css("background","#fff url(http://misc.manmanbuy.com/images/cart/arrowL.gif) left  -4px no-repeat");
+		$(this).find('div').css("background","url(http://misc.manmanbuy.com/images/cart/arrowR.gif) right  -4px no-repeat");
+	}, function() {
+		$(this).find("p.line").hide();
+		$(this).find("dl").hide();
+		$(this).css("background","none");
+		$(this).find('div').css("background","url(http://misc.manmanbuy.com/images/cart/arrow.gif) right 10px no-repeat");
+	});
+$("span.mmb-app").hover(function() {
+	$(this).find("p.line").show();
+	$(this).find(".qrcode").show();
+	$(this).css("background","#fff url(http://misc.manmanbuy.com/images/cart/arrowL.gif) left  -4px no-repeat");
+	$(this).find('div.qr-tit').css("background","url(http://misc.manmanbuy.com/images/cart/arrowR.gif) right  -4px no-repeat");
+}, function() {
+	$(this).find("p.line").hide();
+	$(this).find(".qrcode").hide();
+	$(this).css("background","none");
+	$(this).find('div.qr-tit').css("background","url(http://misc.manmanbuy.com/images/cart/arrow.gif) right 10px no-repeat");
+});
+
+});
+</script>
+
+
+<div style="width: 100%; height: 27px;line-height: 27px; border-bottom: solid 1px #DCDCDC; background-color:#fbfbfb;"             align="center">
+
+<div style="width: 994px; text-align: left;">
+<div style="float: left; width:360px;">
+<div >欢迎来到慢慢买！<a href="http://home.manmanbuy.com/login.aspx?tourl=http%3a%2f%2ftool.manmanbuy.com%2fhistoryLowest.aspx%3furl%3dhttps%3a%2f%2fitem.jd.com%2f7437788.html"  class="pt">请登录</a> &nbsp;   <a href="http://home.manmanbuy.com/reg.aspx" class="pt">免费注册</a></div></div>
+<div style="float: right;color: #666;">
+<div class="top-right">
+	<span class="mmb-app">
+	<div class="qr-tit"><a href="http://home.manmanbuy.com/app.aspx">手机慢慢买</a></div>
+	<p class="line"></p>
+	<div class="qrcode">
+	  <p>扫描二维码下载客户端</p>
+	  <div class="qr">
+		<div class="qr-img"></div>
+		<div class="qr-txt">
+		  <p><b>慢慢买客户端</b></p>
+		  <div class="qr-btn"> <a href="https://itunes.apple.com/cn/app/man-man-mai-bi-jia-wang-rang/id933106331?l=en&mt=8" target="_blank" class="a-iphone" title="iPhone版下载"></a> <a href="http://sj.qq.com/myapp/detail.htm?apkName=com.manmanbuy.bijia" class="a-android" title="Android版下载"></a> </div>
+		</div>
+	  </div>
+	</div>
+</span>
+	<span class="spanjj">|</span>	
+	<span class="my-mmb"><div><a href="http://home.manmanbuy.com/userCenter.aspx">我的慢慢买</a></div>
+	<p class="line"></p>
+		<dl>
+<dd><a href="http://home.manmanbuy.com/fac.aspx">我的收藏</a></dd>
+<dd><a href="http://home.manmanbuy.com/jifenHistory.aspx">我的积分</a></dd>
+		</dl>
+	</span>
+
+	<span class="spanjj">|</span><a href="http://help.manmanbuy.com/default.aspx?id=44069" target="_blank"  class="pt">新手帮助</a>
+</div>
+</div>
+</div></div>
+<!--headend--><div class="clear"></div>
+
+
+
+<div style="width: 100%;background-color:#fff;height:115px;">
+<div style="width: 1000px; margin: 0px auto; text-align: center;"><div style="width: 994px; margin:0px; height:100px;"><div style="float: left; width: 170px; text-align: left;margin-top:20px;"><a href="http://www.manmanbuy.com/"><img src="http://misc.manmanbuy.com/images/logo.png" alt="慢慢买比价网――理性消费倡导者" border="0" /></a></div>
+<div style="float: left; width: 170px; text-align: left;margin-top: 46px;margin-left:10px;">
+<a href='http://tool.manmanbuy.com' style="font-size:22px;color: #555;font-weight: normal;font-family: Microsoft Yahei;text-decoration: none;">省钱购物助手</a></div>
+
+
+
+<div class="head-search head-search-bijia">
+	<div class="tabs">
+		<ul>
+			<li class="tab-bijia"><a href="javascript:;">比价</a></li>
+			<li class="tab-zhekou"><a href="javascript:;">折扣</a></li>
+		</ul>
+	</div>
+	<div class="panel">
+		<form action="http://s.manmanbuy.com/Default.aspx" method="get">
+			<div class="sInput"><label for="skey"></label><input type="text" name="key" id="skey" class="skey" style='width:575px;' value="" autocomplete="off" data-bijia="请输入您想比较的商品名称或型号" data-zekou="请输入您想找的商品折扣"></div>
+			<div class="sBtn"><input type="submit" value="搜索" name="btnSearch" class="btnSearch"></div>
+		</form>
+	</div>
+	<div class="tags tags-bijia">热门比价：
+<a href="http://s.manmanbuy.com/default.aspx?key=iphone+X&hot=1" class="f12hui">iphone X</a>  &nbsp;
+<a href="http://s.manmanbuy.com/default.aspx?key=%D0%A1%C3%D7+8+&hot=1" class="f12hui">小米 8</a>  &nbsp;
+<a href="http://s.manmanbuy.com/default.aspx?key=iphone8&hot=1" class="f12hui">iphone8</a>  &nbsp;
+<a href="http://s.manmanbuy.com/default.aspx?key=%CE%F7%C3%C5%D7%D3%B1%F9%CF%E4&hot=1" class="f12hui">西门子冰箱</a>  &nbsp;
+<a href="http://s.manmanbuy.com/Default.aspx?key=%B8%F1%C1%A6%BF%D5%B5%F7&hot=1" class="f12hui">格力空调</a> &nbsp;
+<a href="http://s.manmanbuy.com/default.aspx?key=%B5%E7%B7%E7%C9%C8&hot=1" class="f12hui">电风扇</a>  &nbsp;
+<a href="http://s.manmanbuy.com/default.aspx?key=%C8%D9%D2%AB10&hot=1" class="f12hui">荣耀10</a>  &nbsp;
+<a href="http://s.manmanbuy.com/default.aspx?key=%CF%D4%CA%BE%C6%F7&hot=1" class="f12hui">显示器</a>  &nbsp;
+<a href='http://book.manmanbuy.com' target='_blank' class="f12hui">搜图书</a>
+
+
+
+
+
+
+	</div>
+    <div class="tags tags-zhekou">
+        热门搜索：
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=白酒&hot=1" class="f12hui">白酒</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=玫瑰花&hot=1" class="f12hui">玫瑰花</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=大闸蟹&hot=1" class="f12hui">大闸蟹</a> &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=月饼&hot=1" class="f12hui">月饼</a> &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=跑步鞋&hot=1" class="f12hui">跑步鞋</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=冰箱&hot=1" class="f12hui">冰箱</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=洗衣机&hot=1" class="f12hui">洗衣机</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=空调&hot=1" class="f12hui">空调</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=耳机&hot=1" class="f12hui">耳机</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/searchnew.aspx?key=免邮券&hot=1" class="f12hui">免邮券</a>  &nbsp;
+<a href="http://zhekou.manmanbuy.com/hotkey.aspx" class="f12hui" _hover-ignore="1">更多&gt;&gt;</a>
+    </div>
+</div>
+
+
+
+
+
+</div><div class="clear"></div></div> </div>
+<div style="width:100%; background-color: #f60; height:40px;" id="webindexmenu">
+     <div style="width:994px;margin: 0px auto; text-align: center;">
+     <div style="margin:0px;"><div class="menudiv3" id="menuindex"><a href="http://www.manmanbuy.com" class="menu">首页</a></div><div class="menudiv3" id="menubijia"><a href="http://home.manmanbuy.com/bijia.aspx" class="menu">全网比价</a></div><div class="menudiv3"  id="menucuxiao"><a href="http://cu.manmanbuy.com/" class="menu">省钱控</a></div>
+<div class="menudiv3" id="menuzhekou"><a href="http://zhekou.manmanbuy.com/" class="menu" target="_blank">国内折扣</a></div>
+<div class="menudiv3"  id="menubaicai"><a href="http://baicai.manmanbuy.com/" class="menu" target="_blank">白菜价</a></div>
+<div class="menudiv3"   id="menutool"><a href="http://tool.manmanbuy.com/HistoryLowest.aspx" class="menu" target="_blank">查历史价</a></div>
+
+ <!--更多-->
+            
+            <div class="menudiv3 main-menu-more"><a href="http://tool.manmanbuy.com/" class="menu m-a a-hassub">更多<i class="mmb-iconfont">&#xe62a;</i></a>
+                <div class="sub">
+                    <dl> <dd>
+                            <a class="s-a" href="http://fanli.manmanbuy.com/">商城导航</a></dd>
+                        
+                        <dd>
+                            <a class="s-a" href="http://tool2.manmanbuy.com/PriceLessSort.aspx">神价监控</a></dd>
+
+                        <dd>
+                            <a class="s-a" href="http://tool2.manmanbuy.com/coudan.aspx">1元凑单品</a></dd>
+
+                      
+                    </dl>
+                </div>
+            </div>
+            <!--更多-->
+
+
+
+<div style="float:right;padding-top:11px;height: 29px;width:90px;line-height:18px; text-align:center; " id="menupinpai"><a href="http://home.manmanbuy.com/app.aspx" target="_blank" style="font-size: 14px;font-weight: normal;Color: #ffffff;background-image:url(http://misc.manmanbuy.com/images/app.gif); background-position:0px 0px; background-repeat:no-repeat; padding-left:20px; display:inline-block;">APP下载</a></div></div><div class="clear"></div></div></div> 
+
+<style type="text/css">
+@font-face {font-family: "iconfont"; src: url('//static.manmanbuy.com/resources/public/iconfont/iconfont.eot?t=1463617611');src: url('//static.manmanbuy.com/resources/public/iconfont/iconfont.eot?t=1463617611#iefix') format('embedded-opentype'),url('//static.manmanbuy.com/resources/public/iconfont/iconfont.woff?t=1463617611') format('woff'),url('//static.manmanbuy.com/resources/public/iconfont/iconfont.ttf?t=1463617611') format('truetype'),url('//static.manmanbuy.com/resources/public/iconfont/iconfont.svg?t=1463617611#iconfont') format('svg');}
+.mmb-iconfont {font-family:"iconfont" !important;font-size:16px;font-style:normal;-webkit-font-smoothing: antialiased;-webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;}
+.main-menu-more{ width: 88px;    position: relative;}
+.main-menu-more a.m-a{ color:#ffffff; font-size:15px; line-height:40px; text-decoration: none;display: block;height: 40px; padding:0px 20px;}
+.main-menu-more a.m-a:hover{border-bottom: 0px solid #e63b0d; line-height: 40px; height: 37px; overflow: hidden;}
+.main-menu-more a.a-hassub{border:1px solid #ff6600; border-bottom: none; height: 39px; line-height: 37px;}
+.main-menu-more .sub{ display: none; padding: 5px 0; background-color: #ffffff; position: absolute;z-index:999;left:0px; border: 1px solid #ededed;border-top:none;}
+.main-menu-more .sub dl{margin:0px;padding:0px;}
+.main-menu-more .sub dl dd{margin:0px;padding:0px;}
+.main-menu-more .sub a.s-a{ display: block; padding: 0 20px; line-height: 35px; color: #666; white-space: nowrap; font-size: 14px; text-align: left;}
+.main-menu-more .sub a.s-a:hover{ background-color: #eeeeee;text-decoration: none;}
+.main-menu-more.on .sub{display: block;}
+.main-menu-more.on a.m-a{border-bottom: 0px solid #e63b0d; line-height: 40px; height: 37px; overflow: hidden;}
+.main-menu-more.on a.a-hassub{background-color:#ffffff; color:#ff6600;border:1px solid #ededed; margin-top:2px; border-bottom:none; line-height: 35px;}
+</style>
+<script type="text/javascript">
+$(function() {
+    $('.main-menu-more').hover(function() {
+    	$(this).addClass('on');
+    	$(this).find('.mmb-iconfont').html('&#xe62b;');
+    }, function() {
+		$(this).removeClass('on');
+		$(this).find('.mmb-iconfont').html('&#xe62a;');
+    });
+})
+</script>
+        <script type="text/javascript">
+            $("#menutool").removeClass("menudiv2");
+            $("#menutool").addClass("menudiv2d");
+        </script>
+    
+<div class="breadcrumbs">
+  <div class="w">
+    <div class="fl crumbs"><a href="http://www.manmanbuy.com/">比价网</a><small>&gt;</small>
+    <a href="http://tool.manmanbuy.com/">省钱购物助手</a><small>&gt;</small>
+    
+    历史价格查询
+</div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="cumenu">
+  <div class="w">
+    <ul>
+      <li><a href="http://cu.manmanbuy.com">省钱控</a></li>
+      
+      <li><a href="http://cu.manmanbuy.com/?zhangzhishi=1">涨知识</a></li>
+       <li><a href="http://zhekou.manmanbuy.com/defaultsharehot.aspx">小时排行榜</a><i class="ic-cu-tip"></i></li>
+       <li><a href="http://cu.manmanbuy.com/cx_0_0_wytj_Default_1.aspx">国内折扣</a></li>
+      <li><a href="http://baicai.manmanbuy.com" target="_blank">淘宝优惠券</a></li>
+      
+      <li id="mlsjg"><a href="http://tool.manmanbuy.com/HistoryLowest.aspx">历史价格查询</a></li>
+      <li id="mjiangjia" ><a href="http://tool2.manmanbuy.com/PriceLessSort.aspx">神价监控</a></li>
+      
+
+    </ul>
+    <div class="clear"></div>
+  </div>
+</div>
+
+ <script type="text/javascript">
+     $("#mlsjg").addClass("on");
+</script>
+    
+<div class="container">
+  <div id="toolbox">
+
+
+           
+            
+    <form name="aspnetForm" method="post" action="historyLowest.aspx?url=https%3a%2f%2fitem.jd.com%2f7437788.html" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjA4MzczOTM3ZGQ=" />
+
+    <div class="titleheadRight">
+        <div style="float: left; width: 600px; height: 60px;">
+            <h1 class="titlebackdi">
+                查商品历史价格走势
+            </h1>
+        </div>
+        <div style="float: right; width: 380px; height: 60px; margin-left: 15px;">
+            <span style="float: right; padding: 30px 10px;">
+                <img src="/images/11.png" style="vertical-align: middle; margin-top: -5px;"><a style="font-size: 14px;"  onclick="hitDown('PC头部下载');"
+                    href="http://home.manmanbuy.com/app.aspx?type=history&value=tool_headdown" target="_blank" title="历史价格查询APP下载">手机上也能方便查历史价格，马上下载APP</a></span>
+        </div>
+        <div class="clear">
+        </div>
+        <div style="padding: 0px;">
+            <div style="border: solid 1px #E6CA98; margin-bottom: 10px; overflow: hidden;">
+                <div style="background-color: #FFF7E6; border-bottom: solid 1px #E6CA98; padding: 6px;
+                    height: 20px; text-align: left; overflow: hidden;">
+                    <div style="float: left; margin-top: 2px;">
+                        京东、天猫、淘宝、亚马逊、苏宁、当当、1号店、国美、考拉、网易严选等商品网址</div>
+                    <div id="searchSet" style="float: right;">
+                        <div class="hisS" style="display: none; float: left; padding: 0px 10px;">
+                            历史查询：<select id='hisSearch'><option value='0'>请选择</option>
+                            </select></div>
+                        <a style="display: none; color: #005AA0; margin-left: 20px; line-height: 24px; font-size: 14px;
+                            float: left;" href='javascript:void();' id="saveSearch">收藏查询</a></div>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <div style="line-height: 30px; height: 30px; text-align: left; font-size: 14px;">
+                        
+                    </div>
+                    <div style="line-height: 30px; height: 30px; text-align: left;">
+                        <input name="ctl00$ContentPlaceHolder1$skey" type="text" id="ctl00_ContentPlaceHolder1_skey" class="wizardTxtField" onblur="if(this.value==&#39;&#39;)this.value=&#39;请输入商品的网页地址，如：http://item.jd.com/3133859.html&#39;;this.style.color=&#39;#A9A9A9&#39;" onfocus="this.style.color=&#39;#A9A9A9&#39;" onclick="if(this.value==&#39;请输入商品的网页地址，如：http://item.jd.com/3133859.html&#39;)this.value=&#39;&#39;;this.style.color=&#39;#000&#39;;" onkeydown="if(this.value==&#39;请输入商品的网页地址，如：http://item.jd.com/3133859.html&#39;)this.value=&#39;&#39;;this.style.color=&#39;#000&#39;;" value="https://item.jd.com/7437788.html" style="color: rgb(169, 169, 169);
+                            width: 900px; height: 30px;" />
+                    </div>
+                    <div style="line-height: 30px; height: 30px; text-align: left; margin: 10px 0px 20px 0px;">
+                        <input type="submit" name="ctl00$ContentPlaceHolder1$Button1" value="商品历史价格查询" onclick="hitDown(&#39;PC查询&#39;);" id="ctl00_ContentPlaceHolder1_Button1" class="btn" />
+                        <span style="color: #999; margin-left: 20px;">有时查询会比较慢，请耐心等待</span>
+                    </div>
+                </div>
+            </div>
+            <div id="maindiv" style="position: relative;">
+                
+                <div class="linkbox">
+                    当前查询的商品地址：http://item.jd.com/7437788.html...<a href="http://www.manmanbuy.com/redirectUrl.aspx?webid=1&tourl=http://item.jd.com/7437788.html" onclick="hitDown('PC直达链接上');"
+                        class="gobuy" target="_blank">直达链接<i class="mmb-iconfont">&#xe60b;</i></a>
+                </div>
+                <iframe src="history2018.aspx?w=951&h=780&h2=420&m=1&e=1&browes=1&url=http%3a%2f%2fitem.jd.com%2f7437788.html"
+                    id="iframeId" marginwidth="0" marginheight="0" frameborder="no" scrolling="no"
+                    width="950" height="750"></iframe>
+                
+                <div class="trend_page">
+                </div>
+                <div id="ctl00_ContentPlaceHolder1_otherSP">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="adpic">
+            <a href="http://home.manmanbuy.com/app.aspx?type=history&value=tool_foot" target="_blank" onclick="hitDown('PC底部大图');" title="历史价格查询APP下载">
+                <img src="/images/lowfooter.jpg" alt="历史价格查询APP下载" />
+            </a>
+        </div>
+    </div>
+    </form>
+    <script src="//include.manmanbuy.com/js/shenqing.js?v=20000" type="text/javascript"></script>
+    <script src="Scripts/histroyTrend.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var pageid = 1;
+        if ('http://item.jd.com/7437788.html' != "") {
+            $("#iframeId").attr("src", "history2018.aspx?w=951&h=780&h2=420&m=1&e=1&browes=1&url=" + escape('http://item.jd.com/7437788.html') + "&token=" + d.encrypt('http://item.jd.com/7437788.html', 2, true));
+            historyouhui('http://item.jd.com/7437788.html', 6);
+        }
+
+        function historyouhui(surl, itop) {
+            if (pageid == 1) {
+                $(".trend_page").html("");
+            }
+            $.ajax({
+                url: "https://bijiatool-v2.manmanbuy.com/ChromeWidgetServices/WidgetServices.ashx?jsoncallback=",
+                type: 'get',
+                dataType: 'jsonp',
+                data: {
+                    methodName: 'getZhekou',
+                    p_url: escape(surl),
+                    ipagesize: itop,
+                    ipage: pageid
+                },
+                success: function (json) {
+                    if (json.ok == 1 && json.icount > 0) {
+
+
+                        var htmlli = "";
+                        for (var j = 0; j < json.zklist.length; j++) {
+                            if (json.zklist[j].infoid == 60198) {
+                                htmlli += "<li><a href=\"javascript:;\" onclick='nodetail();' class=\"go\"></a>";
+                            }
+                            else {
+                                var detailUrl = "javascript:;";
+                                switch (json.zklist[j].infotype) {
+                                    case "1": detailUrl = "//cu.manmanbuy.com/discuxiao_" + json.zklist[j].infoid + ".aspx"; break; //省钱控
+                                    case "2": detailUrl = "//zhekou.manmanbuy.com/Sharedetailed_" + json.zklist[j].infoid + ".aspx"; break; //国内折扣
+                                    case "3": detailUrl = "//cu.manmanbuy.com/discuxiao_" + json.zklist[j].infoid + ".aspx"; break; //海淘
+                                    case "4": detailUrl = "//baicai.manmanbuy.com/dis.aspx?id=" + json.zklist[j].infoid; break; //白菜价
+                                }
+                                htmlli += "<li><a href=\"" + detailUrl + "\" class=\"go\" target=\"_blank\" ></a>";
+                            }
+                            htmlli += " <i></i>";
+                            htmlli += "<div class=\"t\">" + json.zklist[j].spname + "</div>";
+                            htmlli += " <div class=\"s\">" + json.zklist[j].spprice + "</div>";
+                            htmlli += "<div class=\"d\">" + formatDate(json.zklist[j].dt.replace("/Date(", "").replace("-0000)/", "")) + "</div>";
+                            htmlli += " </li>";
+                        }
+
+                        if ($(".trend_page").html() != "") {
+                            $(".trend_page .culist ul").append(htmlli);
+                            if (itop * pageid >= json.icount) {
+                                $(".culist .more").hide();
+                            }
+                        }
+                        else {
+                            var html = " <div class=\"culist\">";
+                            html += "<div class=\"hd\">该商品的历史优惠活动</div>";
+                            html += " <div class=\"bd\">";
+                            html += "  <ul>";
+                            html += htmlli;
+                            html += "</ul>";
+                            if (json.icount > itop) {
+                                html += "<p class='more'><a style='font-size: 16px; padding-left: 40px;color: #ff6700; ' href='javascript:void(0)' onclick=\"historyouhui('" + surl + "'," + itop + ")\">更多优惠</a></p>"
+                            }
+                            html += "</div></div>";
+                            $(".trend_page").html(html);
+                        }
+                        pageid++;
+                    }
+
+
+                }
+            });
+
+        }
+        function nodetail() {
+
+            alert("此活动无详情");
+
+        }
+        function formatDate(now) {
+            var time = new Date(parseInt(now));
+            var year = time.getFullYear();
+            var month = time.getMonth() + 1;
+            if (month < 10) {
+                month = '0' + month;
+            }
+            var date = time.getDate();
+            if (date < 10) {
+                date = '0' + date;
+            }
+            var hour = time.getHours();
+            if (hour < 10) {
+                hour = '0' + hour;
+            }
+            var minute = time.getMinutes();
+            if (minute < 10) {
+                minute = '0' + minute;
+            }
+            var second = time.getSeconds();
+            if (second < 10) {
+                second = '0' + second;
+            }
+            return year + "-" + month + "-" + date + "   " + hour + ":" + minute + ":" + second;
+        }
+
+        function SignGuid() {
+            var guid = "tool-";
+            for (var i = 1; i <= 16; i++) {
+                var n = Math.floor(Math.random() * 16.0).toString(16);
+                guid += n;
+            }
+            return guid;
+        }
+        function hitDown(type) {
+
+            var cookiename = "";
+            if (window.localStorage.getItem("hitdownname") == null) {
+                cookiename = SignGuid();
+                window.localStorage.setItem("hitdownname", cookiename);
+            }
+            else {
+                cookiename = window.localStorage.getItem("hitdownname");
+            }
+
+            $.ajax({
+                url: "http://applog.manmanbuy.com/i.ashx?methodName=insertAppLog&jsoncallback=?",
+                type: 'get',
+                dataType: 'jsonp',
+                data:
+                {
+                    type: "tool-pc-app",
+                    value: escape(type),
+                    c_devid: escape(cookiename),
+                    username: ""
+                },
+                success: function (json) {
+                    //alert("suss");
+                },
+                error: function (json) {
+                    //alert("error");
+                }
+            });
+
+
+
+
+        }
+
+    </script>
+    
+
+
+  </div>
+</div><script type="text/javascript">document.write(unescape("%3Cscript src='" + (("https:" == document.location.protocol) ? " https://" : " http://") + "hm.baidu.com/h.js%3F01a310dc95b71311522403c3237671ae' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(window).scroll(function(){
+			document.documentElement.scrollTop+document.body.scrollTop>400?$('.com-back .forward').fadeIn():$('.com-back .forward').fadeOut();
+		})
+		document.documentElement.scrollTop+document.body.scrollTop>400?$('.com-back .forward').fadeIn():$('.com-back .forward').fadeOut();
+		$('.com-back .forward').click(function () {
+			$('html, body').animate({scrollTop:0},500);
+			return false; 
+		});
+	});
+</script> 
+<!--[if lt IE 9]>
+<script type="text/javascript">
+	$(document).ready(function () {
+		function RenderComBack(){
+			if($(window).width()<=1290){
+				$('.com-back').attr('style','right:0px;display:block;');
+			}else{
+				$('.com-back').attr('style','left:50%;margin-left:600px;display:block;');
+			}
+		}
+		RenderComBack();
+		$(window).resize(function() {
+			RenderComBack();
+		});
+	});
+</script>
+<![endif]-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var username = "";
+			if($('.bbsuser').html()==undefined)
+			{}else{username=$('.bbsuser').html()}
+            // alert(username);
+            if (username != "") {//如果用户没有登录
+
+                //getMessageCount(escape(username));
+            }
+        });
+        function getMessageCount(u) {
+            var clientUrl = "http://apapia.manmanbuy.com/index_json.ashx?methodName=getmsgcount&jsoncallback=?";
+            $.ajax({
+                url: clientUrl,
+                type: 'post',
+                dataType: "jsonp",
+                data: { u: u },
+                success: Mgs_refresh,
+                error: function (json) {
+                    $('.message').hide();
+                }
+            });
+        }
+        function Mgs_refresh(json) {
+            var obj = json.ret;
+            if (obj != "0") {
+                //$('.com-back .msg i').css('background-position', '-1px -120px');
+				$('#rpoint').css('left', '31px').css('top','3px');
+                $('#rpoint').show();
+            }
+        }
+
+
+    </script>
+    <div class="com-back">
+        <div class="forward" style="display: block;">
+            <a href="javascript:;"><i></i><em>返回顶部</em></a></div>
+        <div class="feedback">
+            <a href="http://help.manmanbuy.com/fk.aspx" target="_blank"><i></i><em>我要反馈</em></a></div>
+
+    </div>
+	<style>
+        .com-back
+        {
+            width: 42px;
+            position: fixed;
+            _position: absolute;
+            bottom: 41px;
+            right: 0px;
+            display: none;
+        }
+        .com-back a i
+        {
+            background: url(https://img.alicdn.com/imgextra/i4/690311/TB2XM0LrVXXXXb9XpXXXXXXXXXX_!!690311.gif) no-repeat;
+        }
+        .com-back a
+        {
+            display: block;
+            color: #ffffff;
+            font-size: 12px;
+            text-decoration: none !important;
+            border: 1px solid #EBEBEB;
+            width: 39px;
+            height: 39px;
+            background-color: #F5F5F5;
+        }
+        .com-back a i
+        {
+            display: block;
+            height: 30px;
+            width: 30px;
+            margin: 4px auto;
+            overflow: hidden;
+        }
+        .com-back a em
+        {
+            text-align: center;
+            display: none;
+            font-style: normal;
+            font-size: 12px;
+            font-family: "Microsoft YaHei";
+            overflow: hidden;
+            margin: 3px auto 0;
+            width: 24px;
+            font-size: 12px;
+            line-height: 16px;
+        }
+        .com-back a:hover
+        {
+            background-color: #999;
+            border-color: #999;
+        }
+        .com-back a:hover i
+        {
+            display: none;
+        }
+        .com-back a:hover em
+        {
+            display: block;
+        }
+        .com-back .forward
+        {
+            display: none;
+            margin-bottom: 4px;
+        }
+        .com-back .forward i
+        {
+            background-position: -2px 0px;
+        }
+        .com-back .forward:hover i
+        {
+            background-position: -35px 0px;
+            -webkit-border-radius: 0 3px 3px 0;
+            -moz-border-radius: 0 3px 3px 0;
+            border-radius: 0 3px 3px 0;
+        }
+        .com-back .feedback
+        {
+            margin-bottom: 4px;
+        }
+        .com-back .feedback i
+        {
+            background-position: -1px -80px;
+        }
+        .com-back .feedback:hover i
+        {
+            background-position: -35px -40px;
+            -webkit-border-radius: 0 3px 3px 0;
+            -moz-border-radius: 0 3px 3px 0;
+            border-radius: 0 3px 3px 0;
+        }
+        
+        .com-back .msg i
+        {
+            background-position: -1px -40px;
+        }
+        .com-back .msg:hover i
+        {
+            background-position: -35px -40px;
+            -webkit-border-radius: 0 3px 3px 0;
+            -moz-border-radius: 0 3px 3px 0;
+            border-radius: 0 3px 3px 0;
+        }
+        @media screen and (max-width: 1290px)
+        {
+            .com-back
+            {
+                display: block;
+                right: 0px;
+            }
+        }
+        @media screen and (min-width: 1290px)
+        {
+            .com-back
+            {
+                left: 50%;
+                margin-left: 600px;
+                display: block;
+            }
+        }
+    </style>
+
+
+<style type="text/css">
+.footer-wrap .footer-box .footer-app .qr .qr-ot a,.footer-wrap .footer-box .footer-app .qr .qr-img{ background:url(http://include.manmanbuy.com/newindex/newindexpic/m.m.c/nav_app_icon.gif) no-repeat;}
+.footer-wrap{ font-family:"Microsoft YaHei"; padding-top: 40px;text-align: left;}
+.footer-wrap a{ font-family:"Microsoft YaHei";}
+.footer-wrap div{font-family:"Microsoft YaHei";}
+.footer-wrap .w{ width:998px; margin:0px auto;}
+.footer-wrap .footer-box{ border-top:1px solid #dddddd; background-color:#fefefe; height:240px;padding: 10px 0px;}
+.footer-wrap .footer-box .footer-app{ float:left; width:280px;}
+.footer-wrap .footer-box .footer-app .qr{margin:30px 0px 26px 0px;}
+.footer-wrap .footer-box .footer-app .qr .qr-img{width: 106px; height: 106px; background-position: 0 0; float: left; margin-right: 12px;}
+.footer-wrap .footer-box .footer-app .qr .qr-ot a{display: block;width: 104px; height: 28px; padding: 0px; margin: 10px 0px; overflow:hidden; text-indent:-99em;}
+.footer-wrap .footer-box .footer-app .qr .qr-ot a.a-iphone{background-position: 0px -122px;}
+.footer-wrap .footer-box .footer-app .qr .qr-ot a.a-android{background-position: 0px -157px;}
+.footer-wrap .footer-box .footer-app .p{ font-size:28px;}
+.footer-wrap .footer-box .footer-guide{ float:left; border-left:1px solid #dddddd; border-right:1px solid #dddddd; width:470px;height: 200px;margin-top: 20px;}
+.footer-wrap .footer-box .footer-work{ float:left; width:246px;}
+.footer-wrap .footer-info{background-color:#fbfbfb;text-align:center; line-height:20px;}
+.footer-wrap .footer-info span{height: 0px; position:relative;color:#ffffff;display:inline-block;width:240px;border-bottom: 30px solid #333333;border-left: 20px solid transparent;border-right: 20px solid transparent;margin:0px auto;} 
+.footer-wrap .footer-info a{ color:#dbdbdb; position:absolute; left:14px; top:6px;}
+.footer-wrap .footer-info a:hover{ color:#fbfbfb;}
+.footer-wrap .footer-alink{ background-color:#333333;height: 40px;color: #dddddd;line-height: 40px;}
+.footer-wrap .footer-alink .w{color: #dddddd;}
+.footer-wrap .footer-alink em{padding: 0px 6px;color: #555; font-size:9px; font-style:normal;}
+.footer-wrap .footer-alink a{color: #ddd;}
+
+.hz_div{text-align:left;font-size:12px; line-height:26px;height:32px;margin-left:40px;}
+</style>
+
+
+  <div class="footinner" id="footjdad">
+ <!--
+<div  style="margin-left:20px;">
+<script type="text/javascript">var jd_union_unid="206538653",jd_ad_ids="505:6",jd_union_pid="CKfrs8f0KRCdj75iGgAg5727nAEqAA==";var jd_width=960;var jd_height=90;var jd_union_euid="";var p="ABMFURJfEwoRNwpfBkgyTUMIRmtKRk9aZV8ETVxNNwpfBkgyeUNLWFJAXk1kEFMdSVpqZ1JeBRNGRAtZK1gUBRQOUx9ZEzIRBlIfWRwFFgVlKwRRX083HnVaJTISAlAaWhcEFgVXGlMTMhM%3D";</script><script type="text/javascript" charset="utf-8" src="http://u.x.jd.com/static/js/auto.js"></script>
+</div>--></div>
+
+<div class="footer-wrap">
+  <div class="footer-box">
+    <div class="w">
+      <div class="footer-app">
+        <div class="qr">
+          <div class="qr-img"></div>
+          <div class="qr-ot">
+            <p>扫描下载慢慢买APP</p>
+            <a href="https://itunes.apple.com/cn/app/man-man-mai-bi-jia-wang-rang/id933106331?l=en&mt=8" target="_blank" class="a-iphone">iPhone版下载</a> <a href="http://sj.qq.com/myapp/detail.htm?apkName=com.manmanbuy.bijia" target="_blank" class="a-android">Android版下载</a> </div>
+        </div>
+        <div class="p">你的随身购物助手</div>
+      </div>
+      <div class="footer-guide">
+<div style="text-align:center;font-size:14px;line-height:40px; height:40px;margin-bottom:12px;">何为慢慢买</div>
+<div style="text-align:left;font-size: 13px;line-height:26px;width:360px;margin-left: 50px;">慢慢买是一个倡导理性消费的导购平台，7年来我们专注为用户推荐高性价比的商品，同时开发了全网比价、历史价格查询等购物助手，力求帮助消费者花更少的钱买到优质的商品。</div>
+<div style="text-align:left;font-size: 12px;line-height:40px;width:360px;margin-left: 50px;margin-top: 10px;">合作商城：<a href="http://www.manmanbuy.com/redirectUrl.aspx?spid=0&webid=1" target="_blank">京东</a>  <a href="http://www.tmall.com" target="_blank">天猫</a>
+<a href="http://www.manmanbuy.com/redirectUrl.aspx?spid=0&webid=6" target="_blank">苏宁</a> <a href="http://www.manmanbuy.com/redirectUrl.aspx?spid=0&webid=4" target="_blank">亚马逊</a> <a href="http://www.manmanbuy.com/redirectUrl.aspx?spid=0&webid=8" target="_blank">国美</a>
+<a href="http://www.manmanbuy.com/redirectUrl.aspx?spid=0&webid=241" target="_blank">考拉</a> 
+<a href="http://www.manmanbuy.com/redirectUrl.aspx?spid=0&webid=13" target="_blank">1号店</a>
+<a href="http://www.manmanbuy.com/redirectUrl.aspx?spid=0&webid=36" target="_blank">唯品会</a>
+ &nbsp; 
+<a href="http://fanli.manmanbuy.com/">更多&raquo;</a>
+</div>
+      </div>
+      <div class="footer-work">
+<div style="text-align:left;font-size:14px;line-height:60px; height:60px; margin-left:40px;margin-top:10px;">商务合作</div>
+        <div class="hz_div"><a href="http://help.manmanbuy.com/default.aspx?id=38756" target="_blank">B2C商城入驻&raquo;</a></div>
+        <div class="hz_div"><a href="http://help.manmanbuy.com/default.aspx?id=38758" target="_blank">比价API合作&raquo;</a></div>
+      <div class="hz_div"><a href="http://help.manmanbuy.com/default.aspx?id=38757" target="_blank">电商活动报名&raquo;</a></div>
+<div class="hz_div"><a href="http://help.manmanbuy.com/default.aspx?id=38754" target="_blank">联系我们&raquo;</a></div>
+
+      </div>
+    </div>
+  </div>
+  <!--<div class="footer-info"><span><a href="http://help.manmanbuy.com/default.aspx?id=38753">慢慢买 - 崇尚理性消费，追求生活品质！</a></span></div>-->
+  <div class="footer-alink">
+    <div class="w"> &copy; 2018 <a href="http://www.manmanbuy.com">慢慢买</a> 版权所有 <em>|</em> <a href="http://help.manmanbuy.com" target="_blank">关于我们</a> <em>|</em> <a href="http://m.manmanbuy.com/" target="_blank">Wap版</a> <em>|</em> <a href="http://www.manmanbuy.com/">比价网</a><em>|</em> <a href="http://www.manmanbuy.com/comment.aspx">全网评论</a> <em>|</em> <a href="http://cu.manmanbuy.com/">值得买</a> <em>|</em> <a href="http://tool.manmanbuy.com/HistoryLowest.aspx" target="_blank">历史价格</a> <em>|</em> <a href="http://www.manmanbuy.com/link.aspx">友情链接</a>  <em>|</em> <a href="http://www.manmanbuy.com/top10.aspx">品牌大全</a> <em>|</em> <a href="http://www.manmanbuy.com/newpro.aspx">最新商品</a> 
+<em>|</em> <a href="http://fanli.manmanbuy.com">网站导航</a> <em>|</em> <a href="http://list.manmanbuy.com/sitemap.aspx">地图</a> <em>|</em> <a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备10201740号</a>
+    </div>
+  </div>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script>(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?1cef759b2f318d531e63b03e6258c099":"https://jspassport.ssl.qhimg.com/11.0.1.js?1cef759b2f318d531e63b03e6258c099";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+<link href="//include.manmanbuy.com/css/fancybox.css" rel="stylesheet" type="text/css" />
+<script src="//include.manmanbuy.com/js/projs/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="//include.manmanbuy.com/js/shenqing.js?v=20172" type="text/javascript"></script>
+<!--<script src="//include.manmanbuy.com/js/MMBSign_P.js?v=20160123" type="text/javascript"></script>-->
+<!--<script src="//include.manmanbuy.com/js/MMBSign.js?v=20160118" type="text/javascript"></script>-->
+    <!--/网站通用浮动--><script src="http://include.manmanbuy.com/js/tixings11_pc.js?20180618" type="text/javascript"></script>
+
+
+<script type="text/javascript"  src='http://hm.baidu.com/h.js%3F01a310dc95b71311522403c3237671ae'></script>
+</body>
+</html>
