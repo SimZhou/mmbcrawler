@@ -214,4 +214,4 @@ var d = {
     }
 }
 
-console.log(d.encrypt("https://detail.tmall.com/item.htm?id=532663862361", 2, true));
+// console.log(d.encrypt("https://detail.tmall.com/item.htm?id=532663862361", 2, true));
